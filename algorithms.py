@@ -44,7 +44,7 @@ def breadth_first_search(pygame,gameGrid):
 
     return came_from
 
-def breadth_first_reverse_path(start,goal,parents):
+def reverse_path(start,goal,parents):
     ''' Obtains the path from starting point to the goal point
         after having done Breadth First Search
     :param start: (Tuple) Starting point with the format (x,y)
@@ -72,7 +72,7 @@ def dijkstra_search(pygame,gameGrid):
     '''
     start=gameGrid.startPoint
 
-    frontier = models.PriorityQueue()
+    frontier = util.PriorityQueue()
     frontier.put(start, 0)
     came_from = {}
     cost_so_far = {}
@@ -84,6 +84,10 @@ def dijkstra_search(pygame,gameGrid):
 
         if current == gameGrid.goalPoint:
             break
+
+        gameGrid.paintSquare(current, (255))
+        pygame.display.flip()  # Update screen
+        time.sleep(0.05)
 
         for next in gameGrid.grid.neighbors(current):
             new_cost = cost_so_far[current] + gameGrid.grid.cost(current, next)

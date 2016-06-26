@@ -49,7 +49,7 @@ class Grid():
 
     def createGrid(self):
         '''Initialization of an empry grid'''
-        self.grid = models.SquareGrid(width=self.rows,height=self.cols)
+        self.grid = models.GridWithWeights(width=self.rows,height=self.cols)
 
     def getCoordsAtPoint(self,pos):
         '''Returns the grid coordinates of a given position in pixels
@@ -72,11 +72,20 @@ class Grid():
         else:
             self.grid.walls.append(coords)
 
+    def removeObstacle(self,coords):
+        ''' True if there is an obstacle in this position, false otherwise
+        :param coords: (Tuple) Position of the grid with the format (row, column)
+        :return: (Bool) Is there an obstacle at this position?
+        '''
+        if (coords in self.grid.walls):
+            self.grid.walls.remove(coords)
+
     def reset(self):
         '''Resets all the elements of the grid'''
         self.startPoint = (0, 0)
         self.goalPoint = (1, 1)
         self.grid.walls=[]
+        self.grid.weights={}
 
     def setStartingPoint(self,coords):
         ''' Sets the starting point position
@@ -121,7 +130,7 @@ class Grid():
                 elif((i,j) == self.goalPoint):
                     self.paintSquare( (i,j),util.COLOR_GOAL_POINT)
                 else:
-                    self.paintSquare( (i,j),util.COLOR_TERRAIN)
+                    self.paintSquare( (i,j),util.getColorTerrain(self.grid.cost(None,(i,j))))
 
     def paintSquare(self,coords,color):
         '''Draws a square in the screen'''

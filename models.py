@@ -70,8 +70,28 @@ class GridWithWeights(SquareGrid):
 
         '''
     def __init__(self, width, height):
-        super(GridWithWeights,self).__init__(width, height)
+        SquareGrid.__init__(self,width, height)
         self.weights = {}
 
     def cost(self, from_node, to_node):
+        '''
+        Obtains the cost of a location (Or 1 if it is not set)
+        :param from_node: (Tuple) Origin location  in the grid (x,y)
+        :param to_node: (Tuple) Destination location in the grid(x,y)
+        :return: The weight of the destination location (Or 1 if it is not set)
+        '''
         return self.weights.get(to_node, 1)
+
+    def addWeight(self,location,weight):
+        self.weights[location]=weight
+
+    def nextWeight(self,location):
+        currentWeight = self.cost(None,location)
+        if (currentWeight <= 2):
+            self.weights[location]=3
+        elif (2 < currentWeight<= 4):
+            self.weights[location]=5
+        elif (4 < currentWeight <= 7):
+            self.weights[location]=10
+        elif (currentWeight > 7):
+            self.weights[location]=1

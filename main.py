@@ -8,9 +8,9 @@ notes           :
 python_version  :2.7.6
 
 '''
-import util,pygame,UImodels,mainBFS
+import util,pygame,UImodels,mainGames
 import os
-os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (100,50)
+os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (100,40)
 
 
 def main():
@@ -30,10 +30,11 @@ def main():
             pos = pygame.mouse.get_pos() #Click absolute position
             for button in buttons:
                 if (button.isClicked(pos)):
-                    isButton = True
-                    if(button.id is util.BUTTON_BFS): #If Play button is clicked
-                       running = False
-                       mainBFS.main()
+                    running = False
+                    if(button.id is util.BUTTON_BFS):
+                       mainGames.main(0)
+                    elif(button.id is util.BUTTON_DIJKSTRA):
+                        mainGames.main(1)
 
         pygame.display.flip()  # Update screen
 
@@ -77,10 +78,6 @@ def createUI(screen):
     button2.colorText = util.COLOR_WHITE
     button2.draw()
     buttons.append(button2)
-
-    status = UImodels.Text(125,210, screen, "Not supported yet", 17)
-    status.colorText = (200,40,40)
-    status.draw()
 
 
     button3 = UImodels.Button(380, 100, screen, "A* Search", fontSize=20, buttonId=util.BUTTON_ASTAR)

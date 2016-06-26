@@ -70,21 +70,45 @@ def getInfoMessage(state):
     :return: (String) Info message
     '''
     if(state==STATE_NONE):
-        return" Click on the grid to add a wall  click on the play button to start the animation"
+        return" Press 'w' and click on the grid to add or remove a wall"
     elif(state == STATE_STARTING_POINT): #Waiting user to add starting point in the grid
         return "Click anywhere on the grid to add a starting point"
     elif (state == STATE_GOAL_POINT): #Waiting user to add goal point in the grid
-        return "Click anywhere on the grid to add a goal point"
+        return "Click anywhere on the grid to add a goal point."
+
+
+def getSecondaryInfoMessage(state):
+    '''Returns the info message corresponding to an specific state
+    :param state: (int) Represents an execution state (STATE_NONE,STATE_STARTING_POINT,STATE_GOAL_POINT)
+    :return: (String) Info message
+    '''
+    if (state == STATE_NONE):
+        return " Click on the grid to change the cost of a location. Click Play button to start animation."
+    elif (state == STATE_STARTING_POINT):  # Waiting user to add starting point in the grid
+        return ""
+    elif (state == STATE_GOAL_POINT):  # Waiting user to add goal point in the grid
+        return ""
+
+
+
+def getColorTerrain(cost):
+    if(cost <= 2):
+        return (14,112,45)
+    elif(2<cost<=4):
+        return (87,233,119)
+    elif(4<cost<=7):
+        return (243,255,67)
+    elif(cost>7):
+        return (99,84,3)
 
 ################## CONSTANTS ###################################
 WIDTH = 640
 HEIGHT = 480
-BOTTOM_BAR_HEIGHT = 160
+BOTTOM_BAR_HEIGHT = 210
 
 COLOR_START_POINT=(255,0,0)
-COLOR_GOAL_POINT=(0,75,0)
-COLOR_WALL=(100,100,100)
-COLOR_TERRAIN = (62,238,18)
+COLOR_GOAL_POINT=(112,14,107)
+COLOR_WALL=(50,50,50)
 COLOR_WHITE=(255,255,255)
 
 STATE_NONE=0
@@ -98,3 +122,5 @@ BUTTON_RESET=3
 BUTTON_BFS = 4
 BUTTON_DIJKSTRA=5
 BUTTON_ASTAR=6
+
+ALG_NAMES=["Breadth First Search Algorithm","Dijkstra Search Algorithm"]
