@@ -134,6 +134,8 @@ class Grid():
         points=[point1,point2,point3,point4]
         pygame.draw.polygon(self.screen,color,points)
 
+
+
 class Button():
     '''Pygame Button class
 
@@ -165,7 +167,7 @@ class Button():
         self.color=(100,100,100)
         self.colorText=(0,0,0)
         self.fontSize=fontSize
-        self.font=pygame.font.Font('fonts/DroidSans.ttf',fontSize)
+        self.font=pygame.font.Font('fonts/Roboto-Light.ttf',fontSize)
         self.screen = screen
         self.rect = None
         self.id=buttonId
@@ -204,7 +206,7 @@ class Text():
         screen (pygame.display) Our main screen object
         rect (pygame.rect) Rect of the text
     '''
-    def __init__(self,x,y,screen,text="Button",fontSize=20):
+    def __init__(self,x,y,screen,text="Text",fontSize=30):
         '''Initialization of the text
         :param x: (int) Left position
         :param y: (int) Top position
@@ -217,7 +219,7 @@ class Text():
         self.text=text
         self.colorText=(0,0,0)
         self.fontSize=fontSize
-        self.font=pygame.font.Font('fonts/DroidSans.ttf',fontSize)
+        self.font=pygame.font.Font('fonts/Roboto-Light.ttf',fontSize)
         self.screen = screen
         self.rect = None
 

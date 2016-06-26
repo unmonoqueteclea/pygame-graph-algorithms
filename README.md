@@ -21,7 +21,7 @@ After this, you will be able to navigate through all the different algorithms us
 graphical user interface
 
 ## Currently implemented algorithms
-* [Breadth-first search] (https://en.wikipedia.org/wiki/Breadth-first_search): Breadth-first search (BFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node of a graph, sometimes referred to as a 'search key'[1]) and explores the neighbor nodes first, before moving to the next level neighbors.
+* [Breadth-first search] (https://en.wikipedia.org/wiki/Breadth-first_search): Breadth-first search (BFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node of a graph, sometimes referred to as a 'search key') and explores the neighbor nodes first, before moving to the next level neighbors.
 
 
 

@@ -9,7 +9,7 @@ python_version  :2.7.6
 '''
 
 from __future__ import print_function
-import collections
+import collections,heapq
 
 
 ################## CLASSES #########################################
@@ -39,6 +39,29 @@ class Queue:
     def get(self):
         '''Gets a new element from the left of the queue'''
         return self.elements.popleft()
+
+class PriorityQueue:
+    '''
+    Here’s a reasonably fast priority queue that uses binary heaps, but does not support reprioritize.
+    To get the right ordering, we’ll use tuples (priority, item).
+    When an element is inserted that is already in the queue, we’ll have a duplicate;
+
+    Attrs:
+        elements: (List) The different elements of the Queue
+    '''
+    def __init__(self):
+        self.elements = []
+
+    def empty(self):
+        return len(self.elements) == 0
+
+    def put(self, item, priority):
+        heapq.heappush(self.elements, (priority, item))
+
+    def get(self):
+        return heapq.heappop(self.elements)[1]
+
+
 
 #################################### FUNCTIONS ##################################3
 def getInfoMessage(state):
@@ -72,3 +95,6 @@ BUTTON_PLAY=0
 BUTTON_START_POINT=1
 BUTTON_GOAL_POINT=2
 BUTTON_RESET=3
+BUTTON_BFS = 4
+BUTTON_DIJKSTRA=5
+BUTTON_ASTAR=6

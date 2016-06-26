@@ -55,3 +55,23 @@ class SquareGrid:
         results = filter(self.in_bounds, results)
         results = filter(self.passable, results)
         return results
+
+
+class GridWithWeights(SquareGrid):
+    '''
+        Represents a grid of squares with a cost value for each square.
+        It's a kind of SquareGrid
+
+        Attrs:
+            From SquareGrid:
+                width: (int) An integer that contains the number of squares of each row
+                height: (int) An integer that contains the number of squares of each column
+            wights: (Dictionary) It has the cost value of different positions
+
+        '''
+    def __init__(self, width, height):
+        super(GridWithWeights,self).__init__(width, height)
+        self.weights = {}
+
+    def cost(self, from_node, to_node):
+        return self.weights.get(to_node, 1)
