@@ -9,12 +9,12 @@ Visualization of many famous graph search algorithms using pygame
 
 ## Usage
 ### Pygame installation
-You'll need Python and Pygame for this: http://www.pygame.org/
+You'll need Python and Pygame foh this: http://www.pygame.org/
 Windows and Mac users download it here: http://www.pygame.org/download.shtml
 Linux users can install it with apt-get oder yum or anything alike.
-## Running the algorithms visualizer
+### Running the algorithms visualizer
 Clone the project and then write this in the console:
-```bash
+```
 python main.py
 ```
 After this, you will be able to navigate through all the different algorithms using the
@@ -24,4 +24,4 @@ graphical user interface
 * [Breadth-first search] (https://en.wikipedia.org/wiki/Breadth-first_search): Breadth-first search (BFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node of a graph, sometimes referred to as a 'search key'[1]) and explores the neighbor nodes first, before moving to the next level neighbors.
 
 
-[README UNDER CONSTRUCTION]
+
