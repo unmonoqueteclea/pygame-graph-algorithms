@@ -23,5 +23,5 @@ graphical user interface
 ## Currently implemented algorithms
 * [Breadth-first search] (https://en.wikipedia.org/wiki/Breadth-first_search): Breadth-first search (BFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node of a graph, sometimes referred to as a 'search key') and explores the neighbor nodes first, before moving to the next level neighbors.
 
-
+* [Dijkstra's algorithm] (https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm): Dijkstra's algorithm is an algorithm for finding the shortest paths between nodes in a graph, which may represent, for example, road networks. For a given source node in the graph, the algorithm finds the shortest path between that node and every other. It can also be used for finding the shortest paths from a single node to a single destination node by stopping the algorithm once the shortest path to the destination node has been determined.
 
